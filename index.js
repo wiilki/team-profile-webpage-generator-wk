@@ -1,4 +1,5 @@
 const Employee = require("./lib/Employee");
+const inquirer = require('inquirer');
 
 const generalInfo = [{
     type: 'input',
@@ -19,7 +20,7 @@ const generalInfo = [{
 const addManager = [
     inquirer
         .prompt([
-            {...generalInfo},
+            { ...generalInfo },
             {
                 type: 'input',
                 name: 'officeNum',
@@ -32,7 +33,7 @@ const addManager = [
 const addEmployee = [
     inquirer
         .prompt([
-            {...generalInfo},
+            { ...generalInfo },
             {
                 type: 'list',
                 name: 'role',
@@ -64,3 +65,10 @@ const addIntern = [
         ])
 ];
 
+addManager()
+    .then(addEmployee)
+    .then(addEngineer)
+    .then(addIntern)
+    .catch(err => {
+        console.log(err);
+    });
