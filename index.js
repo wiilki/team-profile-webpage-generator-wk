@@ -1,23 +1,25 @@
 const Employee = require("./lib/Employee");
 
+const generalInfo = [{
+    type: 'input',
+    name: 'name',
+    message: "Enter employee's name:",
+},
+{
+    type: 'input',
+    name: 'id',
+    message: "Enter employee's id #:",
+},
+{
+    type: 'input',
+    name: 'email',
+    message: "Enter employee's email:",
+}]
+
 const addManager = [
     inquirer
         .prompt([
-            {
-                type: 'input',
-                name: 'name',
-                message: "Enter manager's name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter manager's id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter manager's email:",
-            },
+            {...generalInfo},
             {
                 type: 'input',
                 name: 'officeNum',
@@ -30,21 +32,7 @@ const addManager = [
 const addEmployee = [
     inquirer
         .prompt([
-            {
-                type: 'input',
-                name: 'name',
-                message: "Enter employee's name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter employee's id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter employee's email:",
-            },
+            {...generalInfo},
             {
                 type: 'list',
                 name: 'role',
@@ -53,3 +41,26 @@ const addEmployee = [
             }
         ])
 ];
+
+const addEngineer = [
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'github',
+                message: "Enter engineer's Github username:",
+            },
+        ])
+];
+
+const addIntern = [
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'school',
+                message: "Enter intern's school:",
+            },
+        ])
+];
+
