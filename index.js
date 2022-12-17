@@ -1,39 +1,42 @@
 const Employee = require("./lib/Employee");
 const inquirer = require('inquirer');
 
-const generalInfo = [{
-    type: 'input',
-    name: 'name',
-    message: "Enter employee's name:",
-},
-{
-    type: 'input',
-    name: 'id',
-    message: "Enter employee's id #:",
-},
-{
-    type: 'input',
-    name: 'email',
-    message: "Enter employee's email:",
-}]
-
-const addManager = [
-    inquirer
+const generalInfo = () => {
+    return inquirer
         .prompt([
-            { ...generalInfo },
+            {
+                type: 'input',
+                name: 'name',
+                message: "Enter employee's name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter employee's id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter employee's email:",
+            }
+        ])
+};
+
+const addManager = () => {
+    return inquirer
+        .prompt([
             {
                 type: 'input',
                 name: 'officeNum',
                 message: "Enter manager's office number:",
             }
         ])
-];
+};
 
 
-const addEmployee = [
-    inquirer
+const addEmployee = () => {
+    return inquirer
         .prompt([
-            { ...generalInfo },
             {
                 type: 'list',
                 name: 'role',
@@ -41,10 +44,10 @@ const addEmployee = [
                 choices: ['Engineer', 'Intern']
             }
         ])
-];
+};
 
-const addEngineer = [
-    inquirer
+const addEngineer = () => {
+    return inquirer
         .prompt([
             {
                 type: 'input',
@@ -52,10 +55,10 @@ const addEngineer = [
                 message: "Enter engineer's Github username:",
             },
         ])
-];
+};
 
-const addIntern = [
-    inquirer
+const addIntern = () => {
+    return inquirer
         .prompt([
             {
                 type: 'input',
@@ -63,9 +66,10 @@ const addIntern = [
                 message: "Enter intern's school:",
             },
         ])
-];
+};
 
-addManager()
+generalInfo()
+    .then(addManager)
     .then(addEmployee)
     .then(addEngineer)
     .then(addIntern)
