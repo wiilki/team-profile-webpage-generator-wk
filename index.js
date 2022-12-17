@@ -41,7 +41,6 @@ const generalInfo = () => {
 
 // Prompts for manager office number
 const addManager = () => {
-    generalInfo();
     return inquirer
         .prompt([
             {
@@ -79,10 +78,18 @@ const addIntern = () => {
 
 // Call to functions
 addEmployee()
-    .then(generalInfo)
-    .then(addManager)
-    .then(addEngineer)
-    .then(addIntern)
+    .then(({ role }) => {
+        if (role === 'Manager') {
+            generalInfo()
+                .then(addManager);
+        } else if (role === 'Engineer') {
+            generalInfo()
+                .then(addEngineer);
+        } else {
+            generalInfo()
+                .then(addIntern);
+        }
+    })
     .catch(err => {
         console.log(err);
     });
