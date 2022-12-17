@@ -21,6 +21,7 @@ const addEmployee = () => {
         ])
 };
 
+
 // Prompts for manager office number
 const addManager = () => {
     return inquirer
@@ -81,6 +82,13 @@ const addEngineer = () => {
                 message: "Enter engineer's Github username:",
             },
         ])
+        .then(engineerInfo => {
+            const { name, id, email, github } = engineerInfo;
+            const engineer = new Engineer(name, id, email, github);
+
+            allEmployees.push(engineer);
+            console.log(allEmployees);
+        })
 };
 
 // Prompts for intern's school
@@ -108,6 +116,13 @@ const addIntern = () => {
                 message: "Enter intern's school:",
             },
         ])
+        .then(internInfo => {
+            const { name, id, email, school } = internInfo;
+            const intern = new Intern(name, id, email, school);
+
+            allEmployees.push(intern);
+            console.log(allEmployees);
+        })
 };
 
 // Call to functions
