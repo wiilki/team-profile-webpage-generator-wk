@@ -4,6 +4,19 @@ const inquirer = require('inquirer');
 // Array to store employee info
 const allEmployees = [];
 
+// Prompts to choose employee type
+const addEmployee = () => {
+    return inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'role',
+                message: "Choose role:",
+                choices: ['Engineer', 'Intern', 'Manager']
+            }
+        ])
+};
+
 // Prompts for general info
 const generalInfo = () => {
     return inquirer
@@ -28,6 +41,7 @@ const generalInfo = () => {
 
 // Prompts for manager office number
 const addManager = () => {
+    generalInfo();
     return inquirer
         .prompt([
             {
@@ -38,18 +52,6 @@ const addManager = () => {
         ])
 };
 
-// Prompts to choose employee type
-const addEmployee = () => {
-    return inquirer
-        .prompt([
-            {
-                type: 'list',
-                name: 'role',
-                message: "Choose role:",
-                choices: ['Engineer', 'Intern']
-            }
-        ])
-};
 
 // Prompts for Engineer's Github
 const addEngineer = () => {
@@ -76,11 +78,9 @@ const addIntern = () => {
 };
 
 // Call to functions
-console.log("ENTER MANAGER'S INFO")
-generalInfo()
-    .then(addManager)
+addEmployee()
     .then(generalInfo)
-    .then(addEmployee)
+    .then(addManager)
     .then(addEngineer)
     .then(addIntern)
     .catch(err => {
