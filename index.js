@@ -1,5 +1,9 @@
-const Employee = require("./lib/Employee");
 const inquirer = require('inquirer');
+const Employee = require("./lib/Employee");
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
 
 // Array to store employee info
 const allEmployees = [];
@@ -17,8 +21,8 @@ const addEmployee = () => {
         ])
 };
 
-// Prompts for general info
-const generalInfo = () => {
+// Prompts for manager office number
+const addManager = () => {
     return inquirer
         .prompt([
             {
@@ -35,20 +39,20 @@ const generalInfo = () => {
                 type: 'input',
                 name: 'email',
                 message: "Enter email:",
-            }
-        ])
-};
-
-// Prompts for manager office number
-const addManager = () => {
-    return inquirer
-        .prompt([
+            },
             {
                 type: 'input',
                 name: 'officeNum',
                 message: "Enter manager's office number:",
             }
         ])
+        .then(managerInfo => {
+            const { name, id, email, officeNum } = managerInfo;
+            const manager = new Manager(name, id, email, officeNum);
+
+            allEmployees.push(manager);
+            console.log(allEmployees);
+        })
 };
 
 
@@ -56,6 +60,21 @@ const addManager = () => {
 const addEngineer = () => {
     return inquirer
         .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
+            },
             {
                 type: 'input',
                 name: 'github',
@@ -70,6 +89,21 @@ const addIntern = () => {
         .prompt([
             {
                 type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
+            },
+            {
+                type: 'input',
                 name: 'school',
                 message: "Enter intern's school:",
             },
@@ -80,14 +114,11 @@ const addIntern = () => {
 addEmployee()
     .then(({ role }) => {
         if (role === 'Manager') {
-            generalInfo()
-                .then(addManager);
+            addManager();
         } else if (role === 'Engineer') {
-            generalInfo()
-                .then(addEngineer);
+            addEngineer();
         } else {
-            generalInfo()
-                .then(addIntern);
+            addIntern();
         }
     })
     .catch(err => {
