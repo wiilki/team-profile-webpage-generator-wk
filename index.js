@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Employee = require("./lib/Employee");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -16,7 +17,7 @@ const addEmployee = () => {
                 type: 'list',
                 name: 'role',
                 message: "Choose role:",
-                choices: ['Engineer', 'Intern', 'Manager']
+                choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees']
             }
         ])
         .then(({ role }) => {
@@ -24,8 +25,9 @@ const addEmployee = () => {
                 addManager();
             } else if (role === 'Engineer') {
                 addEngineer();
-            } else {
+            } else if (role === 'Intern') {
                 addIntern();
+            } else {
             }
         })
         .catch(err => {
