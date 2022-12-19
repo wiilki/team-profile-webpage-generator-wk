@@ -19,6 +19,18 @@ const addEmployee = () => {
                 choices: ['Engineer', 'Intern', 'Manager']
             }
         ])
+        .then(({ role }) => {
+            if (role === 'Manager') {
+                addManager();
+            } else if (role === 'Engineer') {
+                addEngineer();
+            } else {
+                addIntern();
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 
@@ -53,6 +65,7 @@ const addManager = () => {
 
             allEmployees.push(manager);
             console.log(allEmployees);
+            addEmployee();
         })
 };
 
@@ -88,6 +101,7 @@ const addEngineer = () => {
 
             allEmployees.push(engineer);
             console.log(allEmployees);
+            addEmployee();
         })
 };
 
@@ -122,20 +136,9 @@ const addIntern = () => {
 
             allEmployees.push(intern);
             console.log(allEmployees);
+            addEmployee();
         })
 };
 
 // Call to functions
 addEmployee()
-    .then(({ role }) => {
-        if (role === 'Manager') {
-            addManager();
-        } else if (role === 'Engineer') {
-            addEngineer();
-        } else {
-            addIntern();
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
