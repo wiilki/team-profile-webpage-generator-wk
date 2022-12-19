@@ -35,6 +35,19 @@ const addEmployee = () => {
                 message: "Enter email:",
             }
         ])
+        .then(({ role }) => {
+            if (role === 'Manager') {
+                addManager();
+            } else if (role === 'Engineer') {
+                addEngineer();
+            } else if (role === 'Intern') {
+                addIntern();
+            } else {
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
 
@@ -50,7 +63,7 @@ const addManager = () => {
         ])
         .then(managerInfo => {
             const { name, id, email, officeNum } = managerInfo;
-            const manager = new Manager({name, id, email}, officeNum);
+            const manager = new Manager(name, id, email, officeNum);
 
             allEmployees.push(manager);
             console.log(allEmployees);
@@ -102,16 +115,3 @@ const addIntern = () => {
 
 // Call to functions
 addEmployee()
-    .then(({ role }) => {
-        if (role === 'Manager') {
-            addManager();
-        } else if (role === 'Engineer') {
-            addEngineer();
-        } else if (role === 'Intern') {
-            addIntern();
-        } else {
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
