@@ -18,21 +18,23 @@ const addEmployee = () => {
                 name: 'role',
                 message: "Choose role:",
                 choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees']
+            },
+            {
+                type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
             }
         ])
-        .then(({ role }) => {
-            if (role === 'Manager') {
-                addManager();
-            } else if (role === 'Engineer') {
-                addEngineer();
-            } else if (role === 'Intern') {
-                addIntern();
-            } else {
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
 };
 
 
@@ -42,28 +44,13 @@ const addManager = () => {
         .prompt([
             {
                 type: 'input',
-                name: 'name',
-                message: "Enter manager's name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter manager's id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter manager's email:",
-            },
-            {
-                type: 'input',
                 name: 'officeNum',
                 message: "Enter manager's office number:",
             }
         ])
         .then(managerInfo => {
             const { name, id, email, officeNum } = managerInfo;
-            const manager = new Manager(name, id, email, officeNum);
+            const manager = new Manager({name, id, email}, officeNum);
 
             allEmployees.push(manager);
             console.log(allEmployees);
@@ -76,21 +63,6 @@ const addManager = () => {
 const addEngineer = () => {
     return inquirer
         .prompt([
-            {
-                type: 'input',
-                name: 'name',
-                message: "Enter engineer's name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter engineer's id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter engineer's email:",
-            },
             {
                 type: 'input',
                 name: 'github',
@@ -113,21 +85,6 @@ const addIntern = () => {
         .prompt([
             {
                 type: 'input',
-                name: 'name',
-                message: "Enter intern's name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter intern's id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter intern's email:",
-            },
-            {
-                type: 'input',
                 name: 'school',
                 message: "Enter intern's school:",
             },
@@ -145,3 +102,16 @@ const addIntern = () => {
 
 // Call to functions
 addEmployee()
+    .then(({ role }) => {
+        if (role === 'Manager') {
+            addManager();
+        } else if (role === 'Engineer') {
+            addEngineer();
+        } else if (role === 'Intern') {
+            addIntern();
+        } else {
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    });
