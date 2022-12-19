@@ -29,17 +29,17 @@ const addManager = () => {
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter manager's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter manager's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter manager's email:",
             },
             {
                 type: 'input',
@@ -64,17 +64,17 @@ const addEngineer = () => {
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter engineer's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter engineer's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter engineer's email:",
             },
             {
                 type: 'input',
@@ -98,17 +98,17 @@ const addIntern = () => {
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter intern's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter intern's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter intern's email:",
             },
             {
                 type: 'input',
