@@ -142,5 +142,6 @@ const addIntern = () => {
         })
 };
 
+
 // Call to functions
 addEmployee()
