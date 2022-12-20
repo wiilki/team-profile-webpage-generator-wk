@@ -1,46 +1,46 @@
 const generateManager = function (manager) {
     return `
-    <div class="employee-card">
-    <div class="name-title">
-        <h2>${manager.name}</h2>
-        <h2>${manager.role}</h2>
-    </div>
-    <div class="info">
-        <p>ID: ${manager.id}</p>
-        <p>Email: ${manager.email}</p>
-        <p>Office number: ${manager.officeNumber}</p>
-    </div>
-    </div>`;
+<div class="employee-card">
+<div class="name-title">
+    <h2>${manager.name}</h2>
+    <h2>${manager.role}</h2>
+</div>
+<div class="info">
+    <p>ID: ${manager.id}</p>
+    <p>Email: ${manager.email}</p>
+    <p>Office number: ${manager.officeNumber}</p>
+</div>
+</div>`;
 }
 
 const generateEngineer = function (engineer) {
     return `
-    <div class="employee-card">
-    <div class="name-title">
-        <h2>${engineer.name}</h2>
-        <h2>${engineer.role}</h2>
-    </div>
-    <div class="info">
-        <p>ID: ${engineer.id}</p>
-        <p>Email: ${engineer.email}</p>
-        <p>Github: ${engineer.github}</p>
-    </div>
-    </div>`;
+<div class="employee-card">
+<div class="name-title">
+    <h2>${engineer.name}</h2>
+    <h2>${engineer.role}</h2>
+</div>
+<div class="info">
+    <p>ID: ${engineer.id}</p>
+    <p>Email: ${engineer.email}</p>
+    <p>Github: ${engineer.github}</p>
+</div>
+</div>`;
 }
 
 const generateIntern = function (intern) {
     return `
-    <div class="employee-card">
-    <div class="name-title">
-        <h2>${intern.name}</h2>
-        <h2>${intern.role}</h2>
-    </div>
-    <div class="info">
-        <p>ID: ${intern.id}</p>
-        <p>Email: ${intern.email}</p>
-        <p>School: ${intern.school}</p>
-    </div>
-    </div>`;
+<div class="employee-card">
+<div class="name-title">
+    <h2>${intern.name}</h2>
+    <h2>${intern.role}</h2>
+</div>
+<div class="info">
+    <p>ID: ${intern.id}</p>
+    <p>Email: ${intern.email}</p>
+    <p>School: ${intern.school}</p>
+</div>
+</div>`;
 }
 
 
@@ -60,7 +60,7 @@ const generateHTML = ({ name, id, email, officeNumber, github, school }) =>
         <h1>My Team</h1>
     </header>
     <main>
-    ***Templates here****
+    ****Templates here****
     </main>
 </body>
 
