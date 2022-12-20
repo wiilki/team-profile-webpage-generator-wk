@@ -29,7 +29,7 @@ const addEmployee = () => {
             } else if (role === 'Intern') {
                 addIntern();
             } else {
-                writeFile('./dist/index.html',   );
+                writeFile();
             }
         })
         .catch(err => {
@@ -145,11 +145,10 @@ const addIntern = () => {
 };
 
 const writeFile = (fileName, data) => {
-    fs.writeFile(fileName, data, err => {
+    fs.writeFile('./dist/index.html', generateHTML(allEmployees), err => {
         err ? console.log(err) : console.log('Successfully created index.html!')
     })
 };
-
 
 // Call to functions
 addEmployee()
