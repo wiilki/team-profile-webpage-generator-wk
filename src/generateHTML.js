@@ -65,3 +65,5 @@ const generateHTML = ({ name, id, email, officeNumber, github, school }) =>
 </body>
 
 </html>`
+
+module.exports = generateHTML; 

@@ -4,6 +4,7 @@ const Employee = require("./lib/Employee");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const generateHTML = require('./src/generateHTML');
 
 
 // Array to store employee info
@@ -18,7 +19,7 @@ const addEmployee = () => {
                 name: 'role',
                 message: "Choose role:",
                 choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees']
-            }        
+            }
         ])
         .then(({ role }) => {
             if (role === 'Manager') {
@@ -28,8 +29,8 @@ const addEmployee = () => {
             } else if (role === 'Intern') {
                 addIntern();
             } else {
-            }
-        })
+                generateHTML();
+        }})
         .catch(err => {
             console.log(err);
         });
