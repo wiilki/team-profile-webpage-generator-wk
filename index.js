@@ -38,9 +38,7 @@ const addManager = () => {
         .then(managerInfo => {
             const { name, id, email, officeNum } = managerInfo;
             const manager = new Manager(name, id, email, officeNum);
-
-            allEmployees.push(manager);
-            console.log(allEmployees);
+            allEmployees.push(manager);        
             addEmployee();
         })
 };
@@ -98,9 +96,7 @@ const addEngineer = () => {
         .then(engineerInfo => {
             const { name, id, email, github } = engineerInfo;
             const engineer = new Engineer(name, id, email, github);
-
             allEmployees.push(engineer);
-            console.log(allEmployees);
             addEmployee();
         })
 };
@@ -133,9 +129,7 @@ const addIntern = () => {
         .then(internInfo => {
             const { name, id, email, school } = internInfo;
             const intern = new Intern(name, id, email, school);
-
             allEmployees.push(intern);
-            console.log(allEmployees);
             addEmployee();
         })
 };
