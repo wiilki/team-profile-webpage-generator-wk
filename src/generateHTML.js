@@ -13,6 +13,7 @@ const generateManager = manager => {
 </div>`;
 }
 
+
 const generateEngineer = engineer => {
     return `
 <div class="employee-card">
@@ -43,8 +44,26 @@ const generateIntern = intern => {
 </div>`;
 }
 
+const generateHTML = allEmployees => {
+    newArray = [];
+    for (let i = 0; allEmployees.length>i; i++){ 
+        const role = allEmployees[i].getRole();
+        if (role === 'Manager'){ 
+            newArray.push(generateManager(allEmployees[i]));
+        }
+        if (role === 'Engineer'){ 
+            newArray.push(generateEngineer(allEmployees[i]));
+        }
+        if (role === 'Intern'){ 
+            newArray.push(generateIntern(allEmployees[i]));
+        }
+    }
+    const team = newArray.join(''); 
 
-const generateHTML = (data) =>
+    return teamHtml(team); 
+}
+
+const teamHtml= (team) =>
 `<!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +79,7 @@ const generateHTML = (data) =>
         <h1>My Team</h1>
     </header>
     <main>
-    ${generateManager}
+    ${team}
     </main>
 </body>
 
