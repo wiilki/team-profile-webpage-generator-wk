@@ -18,22 +18,7 @@ const addEmployee = () => {
                 name: 'role',
                 message: "Choose role:",
                 choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees']
-            },
-            {
-                type: 'input',
-                name: 'name',
-                message: "Enter name:",
-            },
-            {
-                type: 'input',
-                name: 'id',
-                message: "Enter id #:",
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: "Enter email:",
-            }
+            }        
         ])
         .then(({ role }) => {
             if (role === 'Manager') {
@@ -57,6 +42,21 @@ const addManager = () => {
         .prompt([
             {
                 type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
+            },
+            {
+                type: 'input',
                 name: 'officeNum',
                 message: "Enter manager's office number:",
             }
@@ -78,6 +78,21 @@ const addEngineer = () => {
         .prompt([
             {
                 type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
+            },
+            {
+                type: 'input',
                 name: 'github',
                 message: "Enter engineer's Github username:",
             },
@@ -96,6 +111,21 @@ const addEngineer = () => {
 const addIntern = () => {
     return inquirer
         .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: "Enter name:",
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "Enter id #:",
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "Enter email:",
+            },
             {
                 type: 'input',
                 name: 'school',
