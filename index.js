@@ -10,52 +10,24 @@ const generateHTML = require('./src/generateHTML');
 // Array to store employee info
 const allEmployees = [];
 
-// Prompts to choose employee type
-const addEmployee = () => {
-    return inquirer
-        .prompt([
-            {
-                type: 'list',
-                name: 'role',
-                message: "Choose role:",
-                choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees']
-            }
-        ])
-        .then(({ role }) => {
-            if (role === 'Manager') {
-                addManager();
-            } else if (role === 'Engineer') {
-                addEngineer();
-            } else if (role === 'Intern') {
-                addIntern();
-            } else {
-                writeFile();
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};
-
-
-// Prompts for manager office number
+// Prompts for manager's info
 const addManager = () => {
     return inquirer
         .prompt([
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter manager's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter manager's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter manager's email:",
             },
             {
                 type: 'input',
@@ -73,25 +45,49 @@ const addManager = () => {
         })
 };
 
+// Prompts to add additional employee
+const addEmployee = () => {
+    return inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'role',
+                message: "Choose role:",
+                choices: ['Engineer', 'Intern', 'Finish building my team']
+            }
+        ])
+        .then(({ role }) => {
+          if (role === 'Engineer') {
+                addEngineer();
+            } else if (role === 'Intern') {
+                addIntern();
+            } else {
+                writeFile();
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
 
-// Prompts for Engineer's Github
+// Prompts for Engineer's info
 const addEngineer = () => {
     return inquirer
         .prompt([
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter engineer's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter engineer's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter engineer's email:",
             },
             {
                 type: 'input',
@@ -116,17 +112,17 @@ const addIntern = () => {
             {
                 type: 'input',
                 name: 'name',
-                message: "Enter name:",
+                message: "Enter intern's name:",
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "Enter id #:",
+                message: "Enter intern's id #:",
             },
             {
                 type: 'input',
                 name: 'email',
-                message: "Enter email:",
+                message: "Enter intern's email:",
             },
             {
                 type: 'input',
@@ -151,5 +147,4 @@ const writeFile = (fileName, data) => {
 };
 
 // Call to functions
-addEmployee()
-    
+addManager()
