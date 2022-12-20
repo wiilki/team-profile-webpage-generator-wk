@@ -1,4 +1,4 @@
-const generateManager = function (manager) {
+const generateManager = manager => {
     return `
 <div class="employee-card">
 <div class="name-title">
@@ -13,7 +13,7 @@ const generateManager = function (manager) {
 </div>`;
 }
 
-const generateEngineer = function (engineer) {
+const generateEngineer = engineer => {
     return `
 <div class="employee-card">
 <div class="name-title">
@@ -28,7 +28,7 @@ const generateEngineer = function (engineer) {
 </div>`;
 }
 
-const generateIntern = function (intern) {
+const generateIntern = intern => {
     return `
 <div class="employee-card">
 <div class="name-title">
@@ -60,7 +60,7 @@ const generateHTML = (data) =>
         <h1>My Team</h1>
     </header>
     <main>
-    ****Templates here****
+    ${generateManager}
     </main>
 </body>
 
