@@ -44,7 +44,7 @@ const generateIntern = function (intern) {
 }
 
 
-const generateHTML = ({ name, id, email, officeNumber, github, school }) =>
+const generateHTML = (data) =>
 `<!DOCTYPE html>
 <html lang="en">
 

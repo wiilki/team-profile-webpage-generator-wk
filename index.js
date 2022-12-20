@@ -29,8 +29,9 @@ const addEmployee = () => {
             } else if (role === 'Intern') {
                 addIntern();
             } else {
-                generateHTML();
-        }})
+                console.log(generateHTML());
+            }
+        })
         .catch(err => {
             console.log(err);
         });
