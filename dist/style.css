@@ -8,8 +8,16 @@ header {
 
 main {
     padding: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
-.card {
-    display: inline-block
+.card-header {
+    color: rgb(255, 255, 255);
+    background-color: rgb(62, 91, 255);
+}
+
+.list-group {
+    margin: 10px;
 }
