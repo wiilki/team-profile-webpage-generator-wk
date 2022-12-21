@@ -59,7 +59,6 @@ const addEmployee = () => {
                 addEngineer();
             } else if (role === 'Intern') {
                 addIntern();
-                console.log(allEmployees)
             } else {
                 writeFile();
                 
