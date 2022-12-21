@@ -25,8 +25,10 @@
 * [Inquirer](https://www.npmjs.com/package/inquirer)
 * [Jest](https://jestjs.io/)
 
-  ## Tests
-  
+  ## Tests 
+
+https://user-images.githubusercontent.com/114313171/209015719-9b0b2cc1-21e3-4538-8415-a8f5772b35fd.mp4
+
   https://drive.google.com/file/d/1KCcObj6zIJa9Y0jBOfWm4qhI7tsD4F1W/view?usp=sharing
   
   ## Questions
