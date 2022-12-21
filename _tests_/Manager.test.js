@@ -25,19 +25,19 @@ describe("Manager", () => {
         });
     });
 
-    describe("getGithub", () => {
-        it("should return github", () => {
-            const github = "davesgithub";
-            const result = new Engineer("Dave", 12312315, "dave@email.com", github);
-            expect(result.getGithub()).toBe(github);
+    describe("getOfficeNumber", () => {
+        it("should return officeNumber", () => {
+            const officeNumber = "123-456-7890";
+            const result = new Manager("Dave", 12312315, "dave@email.com", officeNumber);
+            expect(result.getOfficeNumber()).toBe(officeNumber);
         });
-      });
-          
-      describe("getRole", () => {
-          it("should return role", () => {
-              const role = "Engineer";
-              const result = new Engineer("Dave", 12312315, "dave@email.com", "davesgithub");
-              expect(result.getRole()).toBe(role);
-          });
-      });
+    });
+
+    describe("getRole", () => {
+        it("should return role", () => {
+            const role = "Manager";
+            const result = new Manager("Dave", 12312315, "dave@email.com", "123-456-7890");
+            expect(result.getRole()).toBe(role);
+        });
+    });
 });
